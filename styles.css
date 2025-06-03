@@ -7,6 +7,56 @@
     --font: 'Montserrat', Arial, sans-serif;
 }
 
+/* Importação de fontes personalizadas */
+@font-face {
+    font-family: 'Mantul';
+    src: url('fonts/mantul.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'BasisGrotesqueArabicPro-Black';
+    src: url('fonts/BasisGrotesqueArabicPro-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'BasisGrotesqueArabicPro-Bold';
+    src: url('fonts/BasisGrotesqueArabicPro-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'BasisGrotesqueArabicPro-Medium';
+    src: url('fonts/BasisGrotesqueArabicPro-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'BasisGrotesqueArabicPro-Regular';
+    src: url('fonts/BasisGrotesqueArabicPro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'BasisGrotesqueArabicPro-Light';
+    src: url('fonts/BasisGrotesqueArabicPro-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Sanchez';
+    src: url('fonts/Sanchez-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Sanchez-Italic';
+    src: url('fonts/Sanchez-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +64,7 @@
 }
 
 body {
-    font-family: var(--font);
+    font-family: 'Sanchez', 'Sanchez-Italic', Arial, sans-serif;
     background: var(--background);
     color: var(--text);
     line-height: 1.6;
@@ -63,6 +113,15 @@ body {
     color: var(--secondary);
     box-shadow: 0 2px 12px rgba(231,185,124,0.10);
 }
+@media screen and (max-width: 600px) {
+    .hero-full h1 {
+        font-size: 2.2rem;
+    }
+    
+}
+.hero-full h1 .destaque-fotos {
+    font-weight: bold;
+}
 
 .hero-full p {
     font-size: 1.3rem;
@@ -70,7 +129,7 @@ body {
 }
 
 .btn-primary {
-    background: var(--primary);
+    background: #bd5821;
     color: #fff;
     padding: 1rem 2.5rem;
     border-radius: 30px;
@@ -87,7 +146,7 @@ body {
 }
 
 .btn-primary:hover {
-    background: #cfa45e;
+    background: #bd5821;
 }
 
 .btn-secondary {
@@ -106,6 +165,29 @@ body {
 .btn-secondary:hover {
     background: var(--primary);
     color: #fff;
+}
+
+.btn-servico {
+    background: #6A7044;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 1rem 2.2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 0.7rem;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(52,152,219,0.10);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    width: 90%;
+    max-width: 260px;
+    display: block;
+}
+
+.btn-servico:hover {
+    background: #939b5d;
 }
 
 /* SOBRE */
@@ -175,7 +257,7 @@ body {
     border-radius: 8px;
     border: 1.5px solid #e0e0e0;
     box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-    width: 370px;
+    width: 450px;
     max-width: 100%;
     padding: 0 0 2rem 0;
     display: flex;
@@ -184,6 +266,12 @@ body {
     margin-bottom: 2rem;
     transition: box-shadow 0.18s, transform 0.18s;
     overflow: hidden;
+}
+@media screen and (max-width: 600px) {
+    .servico-card {
+    width: 100%;
+    max-width: 350px;
+    }
 }
 
 .servico-card:hover {
@@ -265,32 +353,9 @@ body {
     line-height: 1.5;
 }
 
-.btn-servico {
-    background: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    padding: 1rem 2.2rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 0.7rem;
-    transition: background 0.2s;
-    box-shadow: 0 2px 8px rgba(52,152,219,0.10);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    width: 90%;
-    max-width: 260px;
-    display: block;
-}
-
-.btn-servico:hover {
-    background: #217dbb;
-}
-
 /* CTA */
 .cta {
-    background: #AD4913;
+    background: #bd5821;
     color: #fff;
     text-align: center;
     padding: 3rem 0;
@@ -303,7 +368,7 @@ body {
 
 /* CTA COM FOTO (imagem como elemento) */
 .cta.cta-foto {
-    background: #AD4913;
+    background: #bd5821;
     padding: 0;
     margin-bottom: 0;
     min-height: 340px;
@@ -396,7 +461,7 @@ body {
     width: 44px;
     height: 44px;
     font-size: 2rem;
-    color: #AD4913;
+    color: #bd5821;
     cursor: pointer;
     z-index: 10;
     display: flex;
@@ -407,7 +472,7 @@ body {
 }
 
 .carousel-arrow:hover {
-    background: #ff813d;
+    background: #bd5821;
     color: #fff;
 }
 
@@ -458,7 +523,7 @@ body {
     padding: 1rem 2.5rem;
     border-radius: 30px;
     background: #fff;
-    color: #AD4913;
+    color: #bd5821;
     font-weight: bold;
     border: none;
     transition: background 0.2s, color 0.2s;
@@ -466,7 +531,7 @@ body {
 }
 
 .cta-foto-texto .btn-primary:hover {
-    background: #ff813d;
+    background: #ff8a4c;
     color: #fff;
 }
 
@@ -491,11 +556,18 @@ body {
     padding: 2rem 1.5rem;
     margin-bottom: 1.5rem;
     flex: 1 1 380px;
-    min-width: 320px;
+    min-height:480px ;
     max-width: 480px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+@media screen and (max-width: 400px) {
+    .studio-bloco {
+    
+    min-height:520px ;
+    
+}
 }
 
 .studio-info {
@@ -561,14 +633,20 @@ body {
     margin-bottom: 2.5rem;
     position: relative;
 }
-
-.estilos-titulo span {
+@media screen and (max-width: 405px) {
+    .estilos-titulo {
     
+    font-size: 2.3rem;
+    
+}
+    
+}
+.estilos-titulo span {
     background: #E6D6C3;
     color: #444;
-    padding: 0.1em 0.7em;
+    padding: 0 10px;
     border-radius: 4px;
-    font-style: italic;
+    font-style: normal;
     font-weight: bold;
 }
 
@@ -697,7 +775,7 @@ body {
 }
 
 .footer-col {
-    flex: 1 1 180px;
+    flex: 1 1 120px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -719,7 +797,7 @@ body {
 }
 
 .footer-brand {
-    font-size: 1.15rem;
+    font-size: 1.5rem;
     color: #fff;
     font-weight: 600;
     margin-top: 0.1rem;
@@ -730,7 +808,7 @@ body {
 .menu-col .footer-title,
 .contato-col .footer-title {
     color: #ffffff;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 0.3rem;
     text-align: center;
@@ -803,6 +881,33 @@ body {
     letter-spacing: 0.2px;
 }
 
+/* Títulos principais */
+h1, h2, h3 {
+    font-family: 'Mantul', Arial, sans-serif !important;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+}
+
+/* Botões */
+.btn-primary,
+.btn-secondary,
+.btn-servico,
+.btn-pacote {
+    font-family: 'BasisGrotesqueArabicPro-Bold', 'BasisGrotesqueArabicPro-Regular', Arial, sans-serif !important;
+}
+
+/* Footer */
+.footer-acm,
+.footer-col,
+.footer-brand,
+.menu-col .footer-title,
+.contato-col .footer-title,
+.menu-col ul li a,
+.footer-copy,
+.footer-email {
+    font-family: 'BasisGrotesqueArabicPro-Regular', Arial, sans-serif !important;
+}
+
 /* Responsivo */
 @media (max-width: 900px) {
     .footer-container {
@@ -870,8 +975,11 @@ body {
     .cta-foto-flex {
         padding: 1rem 0.2rem;
     }
-    /* Não precisa repetir ocultação, já está em 900px/700px */
+    .footer-col {
+    flex: 1 1 30px;
 }
+}
+
 
 .studio-titulo {
     color: #ff813d;
@@ -883,3 +991,55 @@ body {
     letter-spacing: 0.5px;
 }
 
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    font-size: 35px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: pulse 3s infinite; /* Updated animation */
+    text-decoration: none;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 1);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* Responsividade para o botão de WhatsApp */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .whatsapp-float {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        bottom: 10px;
+        right: 10px;
+    }
+}

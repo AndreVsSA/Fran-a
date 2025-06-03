@@ -3,16 +3,25 @@ document.querySelectorAll('.btn-pacote').forEach(btn => {
     btn.addEventListener('click', function() {
         const pacote = btn.getAttribute('data-pacote');
         const msg = encodeURIComponent(`Olá! Tenho interesse no pacote ${pacote}. Gostaria de saber mais detalhes.`);
-        window.open(`https://wa.me/5599999999999?text=${msg}`, '_blank');
+        window.open(`https://wa.me/5538999216198?text=${msg}`, '_blank');
     });
 });
 
 // Redirecionamento dos botões de serviço para WhatsApp
 document.querySelectorAll('.btn-servico').forEach(btn => {
     btn.addEventListener('click', function() {
-        const servico = btn.getAttribute('data-servico');
-        const msg = encodeURIComponent(`Olá! Tenho interesse no ${servico}. Gostaria de saber mais detalhes.`);
-        window.open(`https://wa.me/5599999999999?text=${msg}`, '_blank');
+        // Busca o h3 mais próximo acima do botão
+        const card = btn.closest('.servico-card');
+        const h3 = card ? card.querySelector('h3') : null;
+        let pacote = '';
+        if (h3) {
+            // Pega o texto do h3, removendo tags extras
+            pacote = h3.textContent.trim();
+        } else {
+            pacote = btn.getAttribute('data-servico');
+        }
+        const msg = encodeURIComponent(`Olá, tenho interesse no ${pacote}!`);
+        window.open(`https://wa.me/553899216198?text=${msg}`, '_blank');
     });
 });
 
@@ -38,3 +47,15 @@ document.querySelectorAll('.btn-servico').forEach(btn => {
         show(idx);
     });
 })();
+
+// Smooth scroll para os links do menu do footer
+document.querySelectorAll('.footer-col.menu-col a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href').replace('#', '');
+        const target = document.getElementById(targetId);
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
