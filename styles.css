@@ -677,7 +677,7 @@ body {
     opacity: 0.92;
     background-size: cover;
     background-position: center;
-    transition: transform 0.3s;
+    transition: transform 0.3s, opacity 0.5s;
 }
 
 .estilo-card:hover .estilo-bg {

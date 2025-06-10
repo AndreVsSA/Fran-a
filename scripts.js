@@ -85,14 +85,28 @@ document.querySelectorAll('.btn-servico').forEach(btn => {
         cards.forEach((card, i) => {
             const bg = card.querySelector('.estilo-bg');
             if (bg && imagensPorCard[i]) {
-                bg.style.backgroundImage = `url('${imagensPorCard[i][idx % imagensPorCard[i].length]}')`;
+                // Adiciona fade-out
+                bg.style.transition = 'opacity 0.5s';
+                bg.style.opacity = '0';
+                setTimeout(() => {
+                    bg.style.backgroundImage = `url('${imagensPorCard[i][idx % imagensPorCard[i].length]}')`;
+                    bg.style.opacity = '1';
+                }, 500);
             }
         });
         idx = (idx + 1) % imagensPorCard[0].length;
     }
 
     if (cards.length === imagensPorCard.length) {
-        trocarImagens();
+        // Inicializa com fade-in
+        cards.forEach((card, i) => {
+            const bg = card.querySelector('.estilo-bg');
+            if (bg && imagensPorCard[i]) {
+                bg.style.transition = 'opacity 0.5s';
+                bg.style.opacity = '1';
+                bg.style.backgroundImage = `url('${imagensPorCard[i][0]}')`;
+            }
+        });
         setInterval(trocarImagens, 5000);
     }
 })();
@@ -116,6 +130,7 @@ document.querySelectorAll('.footer-col.menu-col a[href^="#"]').forEach(link => {
     const leftBtn = document.querySelector('.portfolio-arrow-left');
     const rightBtn = document.querySelector('.portfolio-arrow-right');
     let current = 0;
+    let transitioning = false;
 
     function getCardWidth() {
         if (!cards[0]) return 0;
@@ -123,15 +138,13 @@ document.querySelectorAll('.footer-col.menu-col a[href^="#"]').forEach(link => {
     }
 
     function getViewportCenterOffset() {
-        // Para telas pequenas, centralize corretamente o card ativo
         if (window.innerWidth <= 600) {
             return (window.innerWidth - cards[0].offsetWidth) / 2;
         }
-        // Para telas grandes, use 50vw
         return window.innerWidth / 2 - cards[0].offsetWidth / 2;
     }
 
-    function updateSlider() {
+    function updateSlider(animate = true) {
         cards.forEach((card, i) => {
             card.classList.remove('active', 'left', 'right', 'far');
             if (i === current) {
@@ -144,21 +157,35 @@ document.querySelectorAll('.footer-col.menu-col a[href^="#"]').forEach(link => {
                 card.classList.add('far');
             }
         });
-        // Center the active card
         const cardWidth = getCardWidth();
         const offset = cardWidth * current;
         const centerOffset = getViewportCenterOffset();
+        if (!animate) {
+            track.style.transition = 'none';
+        } else {
+            track.style.transition = 'transform 0.6s cubic-bezier(.4,1,.7,1)';
+        }
         track.style.transform = `translateX(${-offset + centerOffset}px)`;
+        if (!animate) {
+            void track.offsetWidth;
+            track.style.transition = '';
+        }
     }
 
     function slideLeft() {
+        if (transitioning) return;
+        transitioning = true;
         current = (current - 1 + cards.length) % cards.length;
-        updateSlider();
+        updateSlider(true);
+        setTimeout(() => { transitioning = false; }, 600); // 600ms = duração da transição
     }
 
     function slideRight() {
+        if (transitioning) return;
+        transitioning = true;
         current = (current + 1) % cards.length;
-        updateSlider();
+        updateSlider(true);
+        setTimeout(() => { transitioning = false; }, 600);
     }
 
     if (track && cards.length > 0) {
@@ -167,6 +194,6 @@ document.querySelectorAll('.footer-col.menu-col a[href^="#"]').forEach(link => {
             leftBtn.addEventListener('click', slideLeft);
             rightBtn.addEventListener('click', slideRight);
         }
-        window.addEventListener('resize', updateSlider);
+        window.addEventListener('resize', () => updateSlider(false));
     }
 })();
