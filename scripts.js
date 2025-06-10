@@ -108,3 +108,65 @@ document.querySelectorAll('.footer-col.menu-col a[href^="#"]').forEach(link => {
         }
     });
 });
+
+// Portfolio Card Slider Highlight Center
+(function() {
+    const track = document.querySelector('.portfolio-carousel-track');
+    const cards = track ? Array.from(track.children) : [];
+    const leftBtn = document.querySelector('.portfolio-arrow-left');
+    const rightBtn = document.querySelector('.portfolio-arrow-right');
+    let current = 0;
+
+    function getCardWidth() {
+        if (!cards[0]) return 0;
+        return cards[0].offsetWidth + parseInt(getComputedStyle(cards[0]).marginLeft) + parseInt(getComputedStyle(cards[0]).marginRight);
+    }
+
+    function getViewportCenterOffset() {
+        // Para telas pequenas, centralize corretamente o card ativo
+        if (window.innerWidth <= 600) {
+            return (window.innerWidth - cards[0].offsetWidth) / 2;
+        }
+        // Para telas grandes, use 50vw
+        return window.innerWidth / 2 - cards[0].offsetWidth / 2;
+    }
+
+    function updateSlider() {
+        cards.forEach((card, i) => {
+            card.classList.remove('active', 'left', 'right', 'far');
+            if (i === current) {
+                card.classList.add('active');
+            } else if (i === (current - 1 + cards.length) % cards.length) {
+                card.classList.add('left');
+            } else if (i === (current + 1) % cards.length) {
+                card.classList.add('right');
+            } else {
+                card.classList.add('far');
+            }
+        });
+        // Center the active card
+        const cardWidth = getCardWidth();
+        const offset = cardWidth * current;
+        const centerOffset = getViewportCenterOffset();
+        track.style.transform = `translateX(${-offset + centerOffset}px)`;
+    }
+
+    function slideLeft() {
+        current = (current - 1 + cards.length) % cards.length;
+        updateSlider();
+    }
+
+    function slideRight() {
+        current = (current + 1) % cards.length;
+        updateSlider();
+    }
+
+    if (track && cards.length > 0) {
+        updateSlider();
+        if (leftBtn && rightBtn) {
+            leftBtn.addEventListener('click', slideLeft);
+            rightBtn.addEventListener('click', slideRight);
+        }
+        window.addEventListener('resize', updateSlider);
+    }
+})();
