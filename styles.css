@@ -129,7 +129,7 @@ body {
 }
 
 .btn-primary {
-    background: #bd5821;
+    background: #bd4f14;
     color: #fff;
     padding: 1rem 2.5rem;
     border-radius: 30px;
@@ -146,7 +146,7 @@ body {
 }
 
 .btn-primary:hover {
-    background: #bd5821;
+    background: #d37644;
 }
 
 .btn-secondary {
@@ -168,7 +168,7 @@ body {
 }
 
 .btn-servico {
-    background: #6A7044;
+    background: #99ac21;
     color: #fff;
     border: none;
     border-radius: 6px;
@@ -192,7 +192,7 @@ body {
 
 /* SOBRE */
 .sobre {
-    background: #E6D6C3;
+    background: #ebebeb;
     padding: 4rem 0;
 }
 
@@ -209,7 +209,7 @@ body {
 
 .sobre-texto h2 {
     font-size: 2.5rem;
-    color: #AD4913;
+    color: #eb6319;
     margin-bottom: 1rem;
 }
 
@@ -368,7 +368,7 @@ body {
 
 /* CTA COM FOTO (imagem como elemento) */
 .cta.cta-foto {
-    background: #bd5821;
+    background: #8d8d8d;
     padding: 0;
     margin-bottom: 0;
     min-height: 340px;
@@ -461,7 +461,7 @@ body {
     width: 44px;
     height: 44px;
     font-size: 2rem;
-    color: #bd5821;
+    color: #000000;
     cursor: pointer;
     z-index: 10;
     display: flex;
@@ -472,7 +472,7 @@ body {
 }
 
 .carousel-arrow:hover {
-    background: #bd5821;
+    background: #000000;
     color: #fff;
 }
 
@@ -523,7 +523,7 @@ body {
     padding: 1rem 2.5rem;
     border-radius: 30px;
     background: #fff;
-    color: #bd5821;
+    color: #000000;
     font-weight: bold;
     border: none;
     transition: background 0.2s, color 0.2s;
@@ -531,13 +531,13 @@ body {
 }
 
 .cta-foto-texto .btn-primary:hover {
-    background: #ff8a4c;
+    background: #000000;
     color: #fff;
 }
 
 /* DADOS DO ESTÚDIO */
 .studio-dados {
-    background: #E6D6C3;
+    background: #e6e6e6;
     padding: 4rem 0;
 }
 
@@ -612,7 +612,7 @@ body {
 
 /* ESTILOS DE ENSAIO */
 .estilos-ensaio {
-    background: #6A7044;
+    background: #707070;
     
     margin-top: 0;
 }
@@ -757,7 +757,7 @@ body {
 
 /* FOOTER ACMPiercer */
 .footer-acm {
-    background: #6A7044;
+    background: #444444;
     color: #fff;
     padding: 0 0 0.3rem 0;
     font-family: 'Montserrat', Arial, sans-serif;

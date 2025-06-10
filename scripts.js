@@ -48,6 +48,55 @@ document.querySelectorAll('.btn-servico').forEach(btn => {
     });
 })();
 
+// Carrossel de imagens nos cards da seção Estilos
+(function() {
+    // Defina as imagens para cada card (ordem: corporativo, equipe, aniversario, pessoal)
+    const imagensPorCard = [
+        [
+            'corp1.jpg',
+            'corp2.jpg',
+            'corp3.jpg',
+            'corp4.jpg'
+        ],
+        [
+            'equipe1.jpg',
+            'equipe2.jpg',
+            'equipe3.jpg',
+            'equipe4.jpg'
+        ],
+        [
+            'aniversario1.jpg',
+            'aniversario2.jpg',
+            'aniversario3.jpg',
+            'aniversario4.jpg'
+        ],
+        [
+            'pessoal1.jpg',
+            'pessoal2.jpg',
+            'pessoal3.jpg',
+            'pessoal4.jpg'
+        ]
+    ];
+
+    const cards = document.querySelectorAll('.estilos-lista .estilo-card');
+    let idx = 0;
+
+    function trocarImagens() {
+        cards.forEach((card, i) => {
+            const bg = card.querySelector('.estilo-bg');
+            if (bg && imagensPorCard[i]) {
+                bg.style.backgroundImage = `url('${imagensPorCard[i][idx % imagensPorCard[i].length]}')`;
+            }
+        });
+        idx = (idx + 1) % imagensPorCard[0].length;
+    }
+
+    if (cards.length === imagensPorCard.length) {
+        trocarImagens();
+        setInterval(trocarImagens, 5000);
+    }
+})();
+
 // Smooth scroll para os links do menu do footer
 document.querySelectorAll('.footer-col.menu-col a[href^="#"]').forEach(link => {
     link.addEventListener('click', function(e) {
