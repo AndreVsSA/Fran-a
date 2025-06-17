@@ -56,6 +56,18 @@
     font-weight: normal;
     font-style: italic;
 }
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('fonts/BebasNeue.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('fonts/BebasNeue-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
 
 * {
     margin: 0;
@@ -64,7 +76,7 @@
 }
 
 body {
-    font-family: 'Sanchez', 'Sanchez-Italic', Arial, sans-serif;
+    font-family: 'BasisGrotesqueArabicPro-Regular', Arial, sans-serif;
     background: var(--background);
     color: var(--text);
     line-height: 1.6;
@@ -120,7 +132,7 @@ body {
     
 }
 .hero-full h1 .destaque-fotos {
-    font-weight: bold;
+    font-size: 2.6rem;
 }
 
 .hero-full p {
@@ -208,14 +220,17 @@ body {
 }
 
 .sobre-texto h2 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: #eb6319;
     margin-bottom: 1rem;
+    font-weight: 500;
 }
 
 .sobre-texto p {
     margin-bottom: 1.2rem;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    text-align: justify;
+    font-family: 'BasisGrotesqueArabicPro', 'BasisGrotesqueArabicPro-Regular', Arial, sans-serif !important;
 }
 
 .sobre-img {
@@ -307,7 +322,7 @@ body {
     align-items: center;
 }
 
-.servico-info h3 {
+/* .servico-info h3 {
     color: #111;
     font-size: 1.25rem;
     font-family: 'Montserrat', Arial, sans-serif;
@@ -316,11 +331,11 @@ body {
     margin-bottom: 0.7rem;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-}
+} */
 
 .servico-info p {
-    font-size: 1.05rem;
-    color: #444;
+    font-size: 1.5rem;
+    color: #000000;
     margin-bottom: 0.7rem;
     text-align: center;
 }
@@ -500,11 +515,11 @@ body {
 .cta-foto-texto h2 {
     color: #fff;
     text-align: center;
-    padding: 15px;
+    
     font-size: 2.2rem;
     margin-bottom: 1.2rem;
     font-family: 'Montserrat', Arial, sans-serif;
-    font-weight: 700;
+
     letter-spacing: 0.5px;
 }
 
@@ -579,7 +594,7 @@ body {
 .studio-info h2 {
     color: #ff813d;
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-align: center;
 }
 
@@ -643,12 +658,12 @@ body {
     
 }
 .estilos-titulo span {
-    background: #ffffff;
-    color: #444;
+   
+    color: #000000;
     padding: 0 10px;
     border-radius: 4px;
     font-style: normal;
-    font-weight: bold;
+    font-size: 2.8rem;
 }
 
 .estilos-lista {
@@ -657,6 +672,21 @@ body {
     gap: 0;
     width: 100%;
 }
+@media screen and (max-width: 500px) {
+    
+    .estilo-card {
+        border-radius: 5px;
+        margin: 5px 10px;
+    }         
+    .estilo-conteudo h3 {
+    font-size: 2.3rem;
+    font-weight: normal;
+
+}  
+}
+    
+
+
 
 .estilo-card {
     flex: 1 1 25%;
@@ -714,8 +744,8 @@ body {
 }
 
 .estilo-conteudo h3 {
-    font-size: 2.5rem;
-    font-weight: bold;
+    font-size: 2.8rem;
+    /* font-weight: bold; */
     margin-bottom: 1.2rem;
    background-color: #ffffff70;
    border-radius: 15px;
@@ -724,6 +754,14 @@ body {
     padding-left: 10px;
     padding-right: 10px;
 
+}
+@media screen and (max-width: 500px) {
+            
+    .estilo-conteudo h3 {
+    
+    font-weight: normal;
+
+}  
 }
 
 .estilo-conteudo p {
@@ -753,13 +791,13 @@ body {
 }
 .pacotes h2 {
     color: rgb(0, 0, 0);
-    background-color: white;
+    
     padding: 0 15px 0 15px;
     border-radius: 4px;
     max-width: 350px;
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-family: 'Montserrat', Arial, sans-serif;
-    font-weight: 700;
+    
     margin-bottom: 2rem;
     letter-spacing: 0.5px;
     text-transform: none;
@@ -785,7 +823,7 @@ body {
 }
 
 .footer-col {
-    flex: 1 1 120px;
+    /* flex: 1 1 120px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -807,9 +845,10 @@ body {
 }
 
 .footer-brand {
-    font-size: 1.5rem;
+    font-size: 2.3rem;
+    font-family:'Bebas Neue', Arial, sans-serif !important;
     color: #fff;
-    font-weight: 600;
+    /* font-weight: 600; */
     margin-top: 0.1rem;
     letter-spacing: 0.5px;
     padding-bottom: 6px;
@@ -892,8 +931,21 @@ body {
 }
 
 /* Títulos principais */
+h1, h2, h3, h4, h5, h6, .estilos-titulo, .footer-title, .studio-titulo, .footer-brand {
+    font-family: 'Bebas Neue', Arial, sans-serif !important;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Textos normais */
+p, li, .sobre-texto, .servico-info, .servico-info p, .servico-info .leia-mais, .servico-info .duracao-preco, .sobre-texto p, .pacotes, .footer-copy, .footer-email, .footer-socials, .btn-primary, .btn-secondary, .btn-servico, .btn-pacote, .menu-col ul li a, .footer-col, .footer-email, .footer-copy, .sobre-texto, .sobre-texto p, .sobre-img, .sobre-img img, .studio-info, .studio-info ul, .studio-info li, .studio-info p, .studio-mapa, .estilo-conteudo p, .estilo-conteudo, .cta-foto-texto, .cta-foto-texto p, .cta-foto-texto .btn-primary {
+    font-family: 'BasisGrotesqueArabicPro-Regular', Arial, sans-serif !important;
+}
+
+/* Remover/redefinir qualquer uso de 'Mantul' */
 h1, h2, h3 {
-    font-family: 'Mantul', Arial, sans-serif !important;
+    font-family: 'Bebas Neue', Arial, sans-serif !important;
     font-weight: normal;
     letter-spacing: 0.5px;
 }
@@ -909,7 +961,6 @@ h1, h2, h3 {
 /* Footer */
 .footer-acm,
 .footer-col,
-.footer-brand,
 .menu-col .footer-title,
 .contato-col .footer-title,
 .menu-col ul li a,
@@ -993,9 +1044,9 @@ h1, h2, h3 {
 
 .studio-titulo {
     color: #ff813d;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-family: 'Montserrat', Arial, sans-serif;
-    font-weight: 700;
+
     text-align: center;
     margin-bottom: 2.5rem;
     letter-spacing: 0.5px;
@@ -1231,4 +1282,11 @@ h1, h2, h3 {
         height: 38px;
         font-size: 1.5rem;
     }
+}
+
+/* ...existing code... */
+.servico-info h3,
+.servico-info p {
+    font-family: 'Bebas Neue', Arial, sans-serif !important;
+    font-size: 2rem;
 }

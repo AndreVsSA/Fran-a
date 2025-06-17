@@ -53,28 +53,44 @@ document.querySelectorAll('.btn-servico').forEach(btn => {
     // Defina as imagens para cada card (ordem: corporativo, equipe, aniversario, pessoal)
     const imagensPorCard = [
         [
-            'corp1.jpg',
-            'corp2.jpg',
-            'corp3.jpg',
-            'corp4.jpg'
+            './imgs/corporativo/corp1.jpg',
+            './imgs/corporativo/corp2.jpg',
+            './imgs/corporativo/corp3.jpg',
+            './imgs/corporativo/corp4.jpg',
+            './imgs/corporativo/corp5.jpg',
+            './imgs/corporativo/corp6.jpg',
+            './imgs/corporativo/corp7.jpg',
+            './imgs/corporativo/corp8.jpg',
+            './imgs/corporativo/corp9.jpg',
+            './imgs/corporativo/corp10.jpg'
         ],
         [
-            'equipe1.jpg',
-            'equipe2.jpg',
-            'equipe3.jpg',
-            'equipe4.jpg'
+            './imgs/equipe/eqp1.jpg',
+            './imgs/equipe/eqp2.jpg',
+            './imgs/equipe/eqp3.jpg',
+            './imgs/equipe/eqp4.jpg',
+            './imgs/equipe/eqp5.jpg',
+            './imgs/equipe/eqp6.jpg'
+            
         ],
         [
-            'aniversario1.jpg',
-            'aniversario2.jpg',
-            'aniversario3.jpg',
-            'aniversario4.jpg'
+            './imgs/aniversario/niver1.jpg',
+            './imgs/aniversario/niver2.jpg',
+            './imgs/aniversario/niver3.jpg',
+            './imgs/aniversario/niver4.jpg',
+            './imgs/aniversario/niver5.jpg',
+            './imgs/aniversario/niver6.jpg'
         ],
         [
-            'pessoal1.jpg',
-            'pessoal2.jpg',
-            'pessoal3.jpg',
-            'pessoal4.jpg'
+            './imgs/pessoal/psl1.jpg',
+            './imgs/pessoal/psl2.jpg',
+            './imgs/pessoal/psl3.jpg',
+            './imgs/pessoal/psl4.jpg',
+            './imgs/pessoal/psl5.jpg',
+            './imgs/pessoal/psl6.jpg',
+            './imgs/pessoal/psl7.jpg',
+            './imgs/pessoal/psl8.jpg',
+            './imgs/pessoal/psl9.jpg'
         ]
     ];
 
@@ -107,7 +123,7 @@ document.querySelectorAll('.btn-servico').forEach(btn => {
                 bg.style.backgroundImage = `url('${imagensPorCard[i][0]}')`;
             }
         });
-        setInterval(trocarImagens, 5000);
+        setInterval(trocarImagens, 10000);
     }
 })();
 
@@ -197,3 +213,27 @@ document.querySelectorAll('.footer-col.menu-col a[href^="#"]').forEach(link => {
         window.addEventListener('resize', () => updateSlider(false));
     }
 })();
+
+// Remova o carregamento dinâmico do carrossel via data.json
+// (apague ou comente o bloco abaixo)
+/*
+(function() {
+    fetch('admin/data.json')
+        .then(r => r.json())
+        .then(data => {
+            const track = document.querySelector('.portfolio-carousel-track');
+            if (!track || !data.imagens) return;
+            track.innerHTML = '';
+            data.imagens.forEach(img => {
+                const div = document.createElement('div');
+                div.className = 'portfolio-card';
+                const image = document.createElement('img');
+                image.src = img;
+                image.alt = 'Portfólio';
+                div.appendChild(image);
+                track.appendChild(div);
+            });
+            // Opcional: reinicializar o slider JS se necessário
+        });
+})();
+*/
